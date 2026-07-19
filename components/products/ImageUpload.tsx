@@ -1,10 +1,15 @@
 "use client"
+import { getImagePath } from '@/src/utils'
 import { CldUploadWidget } from 'next-cloudinary'
 import Image from 'next/image'
 import { useState } from 'react'
 import { TbPhotoPlus } from 'react-icons/tb'
 
-export default function ImageUpload() {
+type ImageUploadProps = {
+    image: string | undefined
+}
+
+export default function ImageUpload({image}:ImageUploadProps) {
     const [ imageUrl, setImageUrl ] = useState('')
 
   return (
@@ -33,7 +38,8 @@ export default function ImageUpload() {
                         <TbPhotoPlus
                             size={50}
                         />
-                        <p className='text-lg font-semibold'>Add Image</p>
+                        {!imageUrl && ( <p className='text-lg font-semibold'>Add Image Clicking Here</p> )}
+                        
 
                         {imageUrl && (
                             <div className='absolute inset-0 w-full h-full'>
@@ -48,8 +54,26 @@ export default function ImageUpload() {
                     </div>
                 </div>
 
+                {image && !imageUrl && (
+                    <div className=''>
+                        <label htmlFor="">Current Image: </label>
+                        <div className='relative w-65 h-64'>
+                            <Image 
+                                fill 
+                                src={getImagePath(image)} 
+                                alt='Product Image'
+                                style={{objectFit: 'contain'}}
+                            />
+                        </div>
+                    </div>
+                )}
+
                 {/* Send the imageUrl to the databse to save it */}
-                <input type="hidden" name='image' value={imageUrl} /> 
+                <input 
+                    type="hidden" 
+                    name='image' 
+                    defaultValue={imageUrl ? imageUrl : image} // We use the same Url String if the user doesn't upload a new image
+                /> 
             </>
         )}
     </CldUploadWidget>
