@@ -15,6 +15,8 @@
 
 **SnackStation** is a modern, responsive, full-stack self-service ordering system designed for food kiosks and restaurants. It streamlines the order-taking process for customers and provides a robust Kitchen Display System (KDS) for staff to manage incoming orders in real-time.
 
+### 🚀 **Live Demo:** [https://snackstationapp.vercel.app](https://snackstationapp.vercel.app)
+
 ---
 
 ## 📖 Table of Contents
