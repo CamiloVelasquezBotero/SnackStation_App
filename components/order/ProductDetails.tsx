@@ -19,7 +19,7 @@ export default function ProductDetails({ item }: ProductDetailsProps) {
    const disableIncreaseButton = useMemo(() => item.quantity === MAX_ITEMS, [item])
 
    return (
-      <div className="shadow space-y-1 p-4 bg-white  border-t border-gray-200 ">
+      <div className="shadow-md space-y-1 p-4 bg-white  border-t border-gray-200 shadow-gray-300 rounded-md">
          <div className="space-y-4">
             <div className="flex justify-between items-start">
                <p className="text-xl font-bold">{item.name} </p>
@@ -28,13 +28,13 @@ export default function ProductDetails({ item }: ProductDetailsProps) {
                   type="button"
                   onClick={() => removeItem(item.id)}
                >
-                  <XCircleIcon className="text-red-600 hover:text-red-700 transition h-8 w-8 cursor-pointer" />
+                  <XCircleIcon className="text-red-600 hover:text-red-700 transition h-8 w-8 cursor-pointer rounded-full shadow-md hover:shadow-slate-300 hover:scale-102" />
                </button>
             </div>
             <p className="text-2xl text-amber-500 font-black">
                {formatCurrency(item.price)}
             </p>
-            <div className="flex gap-5 px-10 py-2 bg-gray-100 w-fit rounded-lg">
+            <div className="flex gap-5 px-10 py-2 bg-gray-100 w-fit rounded-lg shadow-md shadow-gray-300">
                <button
                   type="button"
                   onClick={() => decreaseQuantity(item.id)}

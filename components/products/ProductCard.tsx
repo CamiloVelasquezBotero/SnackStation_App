@@ -11,7 +11,7 @@ export default function ProductCard({ product }: ProductCardProps) {
     const imagePath = getImagePath(product.image)
 
     return (
-        <div className="border border-slate-300 bg-white hover:bg-gray-100 relative rounded-lg p-2 transition">
+        <div className="border border-slate-300 bg-white hover:bg-gray-100 shadow-lg shadow-slate-300 hover:shadow-slate-500 relative rounded-lg p-2 transition">
 
             <Image
                 src={imagePath}

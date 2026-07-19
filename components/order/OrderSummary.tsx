@@ -66,13 +66,13 @@ export default function OrderSummary() {
                   <input 
                      type="text" 
                      placeholder="Your Name"
-                     className="bg-white border- border-gray-100 p-2 w-full"
+                     className="bg-white border- border-gray-100 p-2 w-full shadow-slate-300 focus:shadow-slate-600 shadow-md focus:outline-none rounded-md"
                      name='name'
                   />
 
                   <input
                      type="submit"
-                     className="py-2 rounded uppercase text-white bg-black hover:bg-gray-900 transition w-full text-center cursor-pointer font-bold"
+                     className="py-2 rounded uppercase text-white bg-black hover:bg-gray-900 transition w-full text-center cursor-pointer font-bold shadow-md"
                      value={'Confirm Order'}
                   />
                </form>

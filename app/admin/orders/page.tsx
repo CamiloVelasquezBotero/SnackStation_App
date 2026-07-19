@@ -1,42 +1,35 @@
+"use client"
+import useSWR from 'swr'
 import OrderCard from "@/components/order/OrderCard";
 import Heading from "@/components/ui/Heading";
-import { prisma } from "@/src/lib/prisma";
+import { OrderWithProducts } from '@/src/types';
 
-async function getPendingOrders() {
-   const orders = await prisma.order.findMany({
-      where: { // Every with the state in pending
-         status: false
-      },
-      include: { // We include the products of the orderProducts
-         orderProducts: {
-            include: {
-               product: true
-            }
-         }
-      }
+export default function OrdersPage() {
+   const url = '/admin/orders/api'
+   const fetcher = () => fetch(url).then(res => res.json()).catch(error => console.error(`There was an error fetching the orders: ${error}`))
+
+   // SWR to update the path data
+   const { data, error, isLoading } = useSWR<OrderWithProducts[]>(url, fetcher, {
+      refreshInterval: 60000, // 1 min it will revalidate the data
+      /* revalidateOnFocus: false */
    })
-   return orders
-}
-
-export default async function OrdersPage() {
-   const orders = await getPendingOrders()
-   /* console.log(JSON.stringify(orders, null, 2)) */ // To debug it
-
-   return (
+   
+   if(isLoading) return 'Loading...'
+   if(data) return (
       <>
          <Heading>Manage Your Orders</Heading>
-         
-         {orders.length ? (
+
+         {data.length ? (
             <div className="grid grid-cols-1 lg:grid-cols-2 2xl:grid-cols-3 gap-5 mt-5">
-               {orders.map(order => (
-                  <OrderCard 
+               {data.map(order => (
+                  <OrderCard
                      key={order.id}
                      order={order}
                   />
                ))}
             </div>
          ) : (
-            <p className={'text-center'}>There are no pending orders</p>
+            <p className='mt-50 text-center text-lg'>There are no pending Orders</p>
          )}
       </>
    )

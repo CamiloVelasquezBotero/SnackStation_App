@@ -16,7 +16,7 @@ export default function CategoryIcon({ category }: CategoryIconProps) {
       <Link href={`/order/${category.slug}`}>
          <div className={`${isActive ? 'bg-amber-400 rounded-r-2xl' : ''} ${!isActive && 'hover:bg-amber-200'}
             flex items-center gap-4 w-full border-t border-gray-200 p-3 last-of-type:border-b rounded-r-2xl
-            hover:rounded-r-2xl hover:scale-102 transition cursor-pointer`}>
+            hover:rounded-r-2xl hover:scale-102 transition cursor-pointer hover:shadow-md hover:shadow-gray-400`}>
             <div className="relative size-16">
                <Image
                   src={`/icon_${category.slug}.svg`}
