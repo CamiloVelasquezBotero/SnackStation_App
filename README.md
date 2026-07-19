@@ -142,12 +142,12 @@ snackstation-next/
 ## 📸 Screenshots
 
 <details>
-<summary>Click to view placeholders</summary>
+<summary>Click to view screenshots</summary>
 
-- **Kiosk Main Screen:** `![Kiosk Screen](/public/screenshots/kiosk.png)`
-- **Admin Dashboard Orders:** `![Kiosk Screen](/public/screenshots/order.png)`
-- **Admin Dashboard Products:** `![Admin Panel](/public/screenshots/products.png)`
-- **Public Orders Screen:** `![Orders Screen](/public/screenshots/orders.png)`
+- **Kiosk Main Screen:** ![Kiosk Screen](public/screenshots/kiosk.png)
+- **Admin Dashboard Orders:** ![Admin Orders Screen](public/screenshots/order.png)
+- **Admin Dashboard Products:** ![Admin Products Panel](public/screenshots/products.png)
+- **Public Orders Screen:** ![Orders Screen](public/screenshots/orders.png)
 
 </details>
 
