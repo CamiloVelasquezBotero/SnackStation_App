@@ -1,6 +1,7 @@
 "use client"
 import LatestOrderItem from "@/components/order/LatestOrderItem";
 import Logo from "@/components/ui/Logo";
+import Spinner from "@/components/ui/Spinner";
 import { OrderWithProducts } from "@/src/types";
 import useSWR from 'swr'
 
@@ -12,7 +13,7 @@ export default function OrdersPage() {
         /* revalidateOnFocus: false */
     })
 
-    if(isLoading) return <p>Loading...</p>
+    if(isLoading) return <Spinner />
     if(data) return (
         <>
             <div className="flex justify-center items-center gap-10">

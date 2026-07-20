@@ -3,6 +3,7 @@ import useSWR from 'swr'
 import OrderCard from "@/components/order/OrderCard";
 import Heading from "@/components/ui/Heading";
 import { OrderWithProducts } from '@/src/types';
+import Spinner from '@/components/ui/Spinner';
 
 export default function OrdersPage() {
    const url = '/admin/orders/api'
@@ -14,7 +15,7 @@ export default function OrdersPage() {
       /* revalidateOnFocus: false */
    })
    
-   if(isLoading) return 'Loading...'
+   if(isLoading) return <Spinner />
    if(data) return (
       <>
          <Heading>Manage Your Orders</Heading>
