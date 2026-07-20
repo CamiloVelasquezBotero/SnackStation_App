@@ -5,6 +5,7 @@ const adminNavigation = [
     {url: '/admin/orders', text: 'Orders', blank: false},
     {url: '/admin/products', text: 'Products', blank: false},
     {url: '/order/coffee', text: 'View Store', blank: true},
+    {url: '/orders', text: 'View Ready Orders', blank: true},
 ]
 
 export default function AdminSidebar() {
